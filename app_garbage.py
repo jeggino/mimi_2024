@@ -91,3 +91,5 @@ if selected == '📊':
     
     favorite_command = edited_df.loc[edited_df["is_widget"]==True]["dict_values"][0]
     st.write(favorite_command)
+
+    df = pd.DataFrame.from_dict({(i, j): favorite_command[i][j] for i in favorite_command.keys() for j in favorite_command[i].keys()}, orient='index')
