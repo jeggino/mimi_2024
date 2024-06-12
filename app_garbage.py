@@ -46,8 +46,6 @@ datum = st.date_input("Datum", datetime.datetime.today())
 operator = st.selectbox('Operator',OPERATOR,key='OPERATOR',placeholder="chose an operator...",index=None)
 location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose an location...",index=None)
 
-
-    
 dict_values = {}
     
 for type in TYPE:
@@ -59,6 +57,7 @@ for type in TYPE:
 
 st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
 comment = st.text_input("Comment",)
+st.write("The current movie title is", comment)
 
 dict_values
 
