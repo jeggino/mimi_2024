@@ -87,14 +87,9 @@ if selected == '📊':
         
     df[["datum","location","operator","total","comment"]]
 
-    df_2 = pd.DataFrame(
-        [
-           {"command": "st.selectbox", "rating": 4, "is_widget": True},
-           {"command": "st.balloons", "rating": 5, "is_widget": False},
-           {"command": "st.time_input", "rating": 3, "is_widget": True},
-       ]
-    )
-    edited_df = st.data_editor(df_2)
+    df_2 = df[["datum","location","operator","total","comment"]]
+    df_2["is_widget"] = False
+    edited_df = st.data_editor(df)
     
-    favorite_command = edited_df.loc[edited_df["is_widget"]==True]["command"]
+    favorite_command = edited_df.loc[edited_df["is_widget"]==True]["datum"]
     st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
