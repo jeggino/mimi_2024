@@ -96,5 +96,5 @@ if selected == '📊':
     )
     edited_df = st.data_editor(df_2)
     
-    favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
+    favorite_command = edited_df.loc[edited_df["is_widget"]==True]["command"]
     st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
