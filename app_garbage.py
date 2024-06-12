@@ -89,5 +89,5 @@ if selected == '📊':
     df_2["is_widget"] = False
     edited_df = st.data_editor(df_2)
     
-    favorite_command = edited_df.loc[edited_df["is_widget"]==True]["dict_values"]
+    favorite_command = edited_df.loc[edited_df["is_widget"]==True]["dict_values"][0]
     st.write(favorite_command)
