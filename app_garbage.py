@@ -79,5 +79,6 @@ if selected == '✍️':
 
     
 if selected == '📊':
-
-    st.write("rfdsvsdfr")
+    db_content = load_dataset()
+    df = pd.DataFrame(db_content)
+    df
