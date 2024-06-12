@@ -81,4 +81,8 @@ if selected == '✍️':
 if selected == '📊':
     db_content = load_dataset()
     df = pd.DataFrame(db_content)
+    if len(df)==0:
+        st.warning("No data yet")
+        st.stop()
+        
     df
