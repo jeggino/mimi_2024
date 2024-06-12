@@ -36,9 +36,10 @@ dict_classes = {"Wood":WOOD, "Paper":PAPER, "Plastic":PLASTIC, "Metal":METAL, "G
 def load_dataset():
   return db.fetch().items
 
-def insert_input(dict_values):
+def insert_input(dict_values,total,comment,datum,operator,location):
 
-  return db.put({"observation":dict_values})
+  return db.put({"dict_values":dict_values,"total":total,"comment":comment,"datum":str(datum),
+                "operator":operator,"location":location})
 
         
 # --- APP ---
@@ -60,27 +61,18 @@ for type_1 in TYPE:
 total = st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
 comment = st.text_input("Comment",)
 
-### INSERT DATA ###
-dict_values["Total"] = total
-dict_values["comment"] = comment
-dict_values["datum"] = str(datum)
-dict_values["operator"] = operator
-dict_values["location"] = location
 
-dict_values
 
 submitted = st.button("Insert data")
 
 if submitted:
     
-    insert_input(dict_values)
+    insert_input(dict_values,total,comment,datum,operator,location)
     st.write(f"Done!")
 
 db_content = load_dataset()
-# df = pd.DataFrame()
-for row in db_content:
-    df = pd.DataFrame(row["observation"]).stack().to_frame().reset_index()
+
+
+df = pd.DataFrame(db)
 
 df
-
-
