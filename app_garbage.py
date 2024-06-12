@@ -90,4 +90,4 @@ if selected == '📊':
     edited_df = st.data_editor(df_2)
     
     favorite_command = edited_df.loc[edited_df["is_widget"]==True]["datum"]
-    dict_values
+    favorite_command
