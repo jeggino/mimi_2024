@@ -74,3 +74,6 @@ if submitted:
     
     insert_input(dict_values)
     st.write(f"Done!")
+
+db_content = load_dataset()
+df = pd.DataFrame(db_content)
