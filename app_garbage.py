@@ -60,6 +60,7 @@ for type_1 in TYPE:
 total = st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
 comment = st.text_input("Comment",)
 
+### INSERT DATA ###
 dict_values["Total"] = total
 dict_values["comment"] = comment
 dict_values["datum"] = str(datum)
@@ -76,5 +77,6 @@ if submitted:
     st.write(f"Done!")
 
 db_content = load_dataset()
-df = pd.DataFrame(db_content).stack().to_frame().reset_index()
+db_content
+df = pd.DataFrame(db_content)
 df
