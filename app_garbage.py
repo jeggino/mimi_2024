@@ -48,7 +48,7 @@ location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose an
 
 for type in TYPE:
   with st.expander(type):
-    for class in dict_classes[type]:
+    for class_ in dict_classes[type]:
       
       option = st.selectbox('Class',dict_classes[type],key=type,placeholder="chose an type...",index=None)
 
