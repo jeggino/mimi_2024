@@ -85,4 +85,4 @@ if selected == '📊':
         st.warning("No data yet")
         st.stop()
         
-    df[datum,location,operator,total,comment]
+    df[location,operator,total,comment]
