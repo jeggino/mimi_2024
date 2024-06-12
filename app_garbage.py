@@ -77,3 +77,4 @@ if submitted:
 
 db_content = load_dataset()
 df = pd.DataFrame(db_content)
+df
