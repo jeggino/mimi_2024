@@ -36,9 +36,9 @@ dict_classes = {"Wood":WOOD, "Paper":PAPER, "Plastic":PLASTIC, "Metal":METAL, "G
 def load_dataset():
   return db.fetch().items
 
-def insert_input(datum,operator,t_1,t_2,locatie,kant,temp,wind,weersomstandigheden,rapport):
+def insert_input(dict_values):
 
-  return db.put({"Datum":str(datum),"Moment":moment,"Starttijd":str(t_1),"Eindtijd":str(t_2),"Locatie":locatie,"kant":kant,"Laagste temperatuur":temp,"Windsnelheid":wind,"Weersomstandigheden":weersomstandigheden,"rapport":rapport})
+  return db.put({"observation":dict_values})
 
         
 # --- APP ---
@@ -62,16 +62,15 @@ comment = st.text_input("Comment",)
 
 dict_values["Total"] = total
 dict_values["comment"] = comment
+dict_values["datum"] = datum
+dict_values["operator"] = operator
+dict_values["location"] = location
 
 dict_values
 
-# submitted = st.button("Gegevens invoegen")
+submitted = st.button("Insert data")
 
-# if submitted:
-
-#     if locatie==None or moment==None or t_1==None or t_2==None or temp==None or kant==None:
-#         st.warning("Vul het formulier in, alstublieft")
-#         st.stop()
-
-#     insert_input(datum,moment,t_1,t_2,locatie,kant,temp,wind,weersomstandigheden,rapport)
-#     st.write(f"Done!")
+if submitted:
+    
+    insert_input(dict_values)
+    st.write(f"Done!")
