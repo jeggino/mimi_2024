@@ -51,7 +51,7 @@ for type in TYPE:
       for type_2 in dict_classes[type]:
           
 
-          st.number_input(type_2, min_value=None, max_value=None, value="min", step=1, format=None, key=type_2, help=None, on_change=None, args=None, kwargs=None,
+          st.number_input(type_2, min_value=None, max_value=None, value="min", step=1, format=None, key=type + type_2, help=None, on_change=None, args=None, kwargs=None,
                           placeholder=None, disabled=False, label_visibility="visible")
       
       # option = st.selectbox('Class',dict_classes[type],key=type,placeholder="chose an type...",index=None)
