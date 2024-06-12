@@ -85,11 +85,14 @@ if selected == '📊':
         st.warning("No data yet")
         st.stop()
         
-    df_2 = df#[["datum","location","operator","total","comment"]]
-    df_2["is_widget"] = False
-    edited_df = st.data_editor(df_2)
+    df_2 = df[["datum","location","operator","total","comment"]]
+    option = st.dataframe(data=df_2, width=None, height=None, use_container_width=True,
+                 hide_index=True, column_order=None, column_config=None, key=None, on_select="ignore", selection_mode="single-column")
+    option
+    # df_2["is_widget"] = False
+    # edited_df = st.data_editor(df_2)
     
-    favorite_command = edited_df.loc[edited_df["is_widget"]==True]["dict_values"][0]
-    st.write(favorite_command)
+    # favorite_command = edited_df.loc[edited_df["is_widget"]==True]["dict_values"][0]
+    # st.write(favorite_command)
 
-    df = pd.DataFrame.from_dict({(i, j): favorite_command[i][j] for i in favorite_command.keys() for j in favorite_command[i].keys()}, orient='index')
+    # df = pd.DataFrame.from_dict({(i, j): favorite_command[i][j] for i in favorite_command.keys() for j in favorite_command[i].keys()}, orient='index')
