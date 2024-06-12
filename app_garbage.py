@@ -90,5 +90,5 @@ if selected == '📊':
                  hide_index=True, column_order=None, column_config=None, key=None, on_select="rerun", selection_mode="single-row")
 
     
-    df.loc[option["selection"]["rows"]]["dict_values"]
+    df.loc[option["selection"]["rows"]]["dict_values"].to_value()
    
