@@ -77,9 +77,10 @@ if submitted:
     st.write(f"Done!")
 
 db_content = load_dataset()
-db_content
 # df = pd.DataFrame()
 for row in db_content:
-    pd.DataFrame(row).stack().to_frame().reset_index()
+    df = pd.DataFrame(row["observation"]).stack().to_frame().reset_index()
+
+df
 
 
