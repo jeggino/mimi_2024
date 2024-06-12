@@ -46,16 +46,19 @@ datum = st.date_input("Datum", datetime.datetime.today())
 operator = st.selectbox('Operator',OPERATOR,key='OPERATOR',placeholder="chose an operator...",index=None)
 location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose an location...",index=None)
 
+dict_values = {}
 for type in TYPE:
   with st.expander(type):
       for type_2 in dict_classes[type]:
           
 
-          st.number_input(type_2,  step=1,  key=type + type_2, help=None, on_change=None,
+          dict_values[type][type_2] = st.number_input(type_2,  step=1,  key=type + type_2, help=None, on_change=None,
                           placeholder=None, disabled=False, label_visibility="visible")
 
 st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
 comment = st.text_input("Comment",)
+
+dict_values
 
 # submitted = st.button("Gegevens invoegen")
 
