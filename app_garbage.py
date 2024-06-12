@@ -49,10 +49,10 @@ location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose an
 
 dict_values = {}
 for type_1 in TYPE:
-    with st.expander(type):
+    with st.expander(type_1):
         idict = {}
         for type_2 in dict_classes[type_1]: 
-            input = st.number_input(type_2,  step=1,  key=type + type_2, label_visibility="visible")
+            input = st.number_input(type_2,  step=1,  key=type_1 + type_2, label_visibility="visible")
             idict[type_2] = None
         dict_values[type_1] = idict
 
