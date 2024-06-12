@@ -49,11 +49,13 @@ location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose an
 dict_values = {}
     
 for type in TYPE:
-  with st.expander(type):
-      for type_2 in dict_classes[type]:
+    with st.expander(type):
+        # for type_2 in dict_classes[type]:
+        for key in dict_classes:
+            dict_values[key] = dict.fromkeys(dict_classes[key], None)
         
-          input = st.number_input(type_2,  step=1,  key=type + type_2, help=None, on_change=None,placeholder=None, disabled=False, label_visibility="visible")
-          dict_values[type] = dict.fromkeys(dict_classes[type_2], input)
+          input = st.number_input(type_2,  step=1,  key=type + type_2, label_visibility="visible")
+          # dict_values[type] = dict.fromkeys(dict_classes[type_2], input)
 
 st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
 comment = st.text_input("Comment",)
