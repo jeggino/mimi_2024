@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
 
 import pandas as pd
 import datetime
@@ -41,38 +42,42 @@ def insert_input(dict_values,total,comment,datum,operator,location):
   return db.put({"dict_values":dict_values,"total":total,"comment":comment,"datum":str(datum),
                 "operator":operator,"location":location})
 
-        
+selected = option_menu(None, ['✍️','📊'], 
+                       icons=None,
+                       default_index=0,
+                       orientation="horizontal",
+                       )
 # --- APP ---
-datum = st.date_input("Date", datetime.datetime.today())
-operator = st.selectbox('Operator',OPERATOR,key='OPERATOR',placeholder="chose an operator...",index=None)
-location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose an location...",index=None)
-
-
-dict_values = {}
-for type_1 in TYPE:
-    with st.expander(type_1):
-        idict = {}
-        for type_2 in dict_classes[type_1]: 
-            input = st.number_input(type_2,  step=1,  key=type_1 + type_2, label_visibility="visible")
-            idict[type_2] = input
-        dict_values[type_1] = idict
-
-
-total = st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
-comment = st.text_input("Comment",)
-
-
-
-submitted = st.button("Insert data")
-
-if submitted:
+if selected == '✍️':
+    datum = st.date_input("Date", datetime.datetime.today())
+    operator = st.selectbox('Operator',OPERATOR,key='OPERATOR',placeholder="chose an operator...",index=None)
+    location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose an location...",index=None)
     
-    insert_input(dict_values,total,comment,datum,operator,location)
-    st.write(f"Done!")
+    
+    dict_values = {}
+    for type_1 in TYPE:
+        with st.expander(type_1):
+            idict = {}
+            for type_2 in dict_classes[type_1]: 
+                input = st.number_input(type_2,  step=1,  key=type_1 + type_2, label_visibility="visible")
+                idict[type_2] = input
+            dict_values[type_1] = idict
+    
+    
+    total = st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
+    comment = st.text_input("Comment",)
+    submitted = st.button("Insert data")
+    
+    if submitted:
+    
+        if operator==None or location==None or total==0 or comment:
+            st.warning("Please complete of fields")
+            st.stop()
+        
+        insert_input(dict_values,total,comment,datum,operator,location)
+        st.write(f"Done!")
 
-db_content = load_dataset()
+    
+if selected == '📊':
 
-
-df = pd.DataFrame(db_content)
-
-df
+    st.write("rfdsvsdfr")
