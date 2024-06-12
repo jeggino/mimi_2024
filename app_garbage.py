@@ -53,7 +53,7 @@ for type_1 in TYPE:
         idict = {}
         for type_2 in dict_classes[type_1]: 
             input = st.number_input(type_2,  step=1,  key=type_1 + type_2, label_visibility="visible")
-            idict[type_2] = None
+            idict[type_2] = input
         dict_values[type_1] = idict
 
 
