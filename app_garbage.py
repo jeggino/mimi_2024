@@ -78,5 +78,8 @@ if submitted:
 
 db_content = load_dataset()
 db_content
-df = pd.DataFrame(db_content)
-df
+# df = pd.DataFrame()
+for row in db_content:
+    pd.DataFrame(row).stack().to_frame().reset_index()
+
+
