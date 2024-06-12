@@ -46,11 +46,10 @@ datum = st.date_input("Datum", datetime.datetime.today())
 operator = st.selectbox('Operator',OPERATOR,key='OPERATOR',placeholder="chose an operator...",index=None)
 location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose an location...",index=None)
 
-# for type in TYPE:
-#   with st.expander(type):
-#     for class_ in dict_classes[type]:
+for type in TYPE:
+  with st.expander(type):
       
-#       option = st.selectbox('Class',dict_classes[type],key=type,placeholder="chose an type...",index=None)
+      option = st.selectbox('Class',dict_classes[type],key=type,placeholder="chose an type...",index=None)
 
 
 # submitted = st.button("Gegevens invoegen")
