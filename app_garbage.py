@@ -70,7 +70,7 @@ if selected == '✍️':
     
     if submitted:
     
-        if operator==None or location==None or total==0 or comment:
+        if operator==None or location==None or total==0 or comment==None:
             st.warning("Please complete all fields")
             st.stop()
         
