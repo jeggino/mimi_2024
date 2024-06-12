@@ -91,6 +91,6 @@ if selected == '📊':
 
     
     a = df.loc[option["selection"]["rows"]]["dict_values"][0]
-    pd.DataFrame.from_dict({(i, j): a[i][j] for i in a.keys() for j in a[i].keys()}, orient='index')
+    pd.DataFrame.from_dict(a, orient='index')
     
    
