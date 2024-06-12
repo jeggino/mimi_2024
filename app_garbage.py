@@ -51,11 +51,9 @@ dict_values = {}
 for type in TYPE:
     with st.expander(type):
         # for type_2 in dict_classes[type]:
-        for key in dict_classes:
-            st.write(key)
-        
-            input = st.number_input(key,  step=1,  key=type + key, label_visibility="visible")
-            dict_values[key] = dict.fromkeys(dict_classes[key], input)
+        for type_2 in dict_classes[type]:        
+            input = st.number_input(type_2,  step=1,  key=type + type_2, label_visibility="visible")
+            dict_values[type] = dict.fromkeys(type_2, input)
 
 st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
 comment = st.text_input("Comment",)
