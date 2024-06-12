@@ -51,7 +51,7 @@ selected = option_menu(None, ['✍️','📊'],
 if selected == '✍️':
     datum = st.date_input("Date", datetime.datetime.today())
     operator = st.selectbox('Operator',OPERATOR,key='OPERATOR',placeholder="chose an operator...",index=None)
-    location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose an location...",index=None)
+    location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose a location...",index=None)
     
     
     dict_values = {}
