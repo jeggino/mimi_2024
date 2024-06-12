@@ -42,7 +42,7 @@ def insert_input(datum,moment,t_1,t_2,locatie,kant,temp,wind,weersomstandigheden
 
         
 # --- APP ---
-datum = st.date_input("Datum", datetime.datetime.today())
+datum = st.date_input("Date", datetime.datetime.today())
 operator = st.selectbox('Operator',OPERATOR,key='OPERATOR',placeholder="chose an operator...",index=None)
 location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose an location...",index=None)
 
