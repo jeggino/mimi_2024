@@ -62,7 +62,7 @@ comment = st.text_input("Comment",)
 
 dict_values["Total"] = total
 dict_values["comment"] = comment
-dict_values["datum"] = datum
+dict_values["datum"] = str(datum)
 dict_values["operator"] = operator
 dict_values["location"] = location
 
