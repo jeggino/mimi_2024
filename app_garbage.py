@@ -89,7 +89,7 @@ if selected == '📊':
     option = st.dataframe(data=df_2, width=None, height=None, use_container_width=True,
                  hide_index=False, column_order=None, column_config=None, key=None, on_select="rerun", selection_mode="single-row")
 
-    option["selection"]["row"]
+    option["selection"]#["row"]
     # df.loc[option["selection"]["row"]]["dict_values"]
     # df_2["is_widget"] = False
     # edited_df = st.data_editor(df_2)
