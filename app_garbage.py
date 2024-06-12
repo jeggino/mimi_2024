@@ -71,7 +71,7 @@ if selected == '✍️':
     if submitted:
     
         if operator==None or location==None or total==0 or comment:
-            st.warning("Please complete of fields")
+            st.warning("Please complete all fields")
             st.stop()
         
         insert_input(dict_values,total,comment,datum,operator,location)
