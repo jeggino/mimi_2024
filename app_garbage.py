@@ -54,7 +54,7 @@ for type in TYPE:
         for key in dict_classes:
             dict_values[key] = dict.fromkeys(dict_classes[key], None)
         
-            input = st.number_input(type_2,  step=1,  key=type + type_2, label_visibility="visible")
+            input = st.number_input(key,  step=1,  key=type + key, label_visibility="visible")
           # dict_values[type] = dict.fromkeys(dict_classes[type_2], input)
 
 st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
