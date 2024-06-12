@@ -76,7 +76,5 @@ if submitted:
     st.write(f"Done!")
 
 db_content = load_dataset()
-db_content
-
-df = pd.DataFrame(db_content)
+df = pd.DataFrame(db_content).stack().to_frame().reset_index()
 df
