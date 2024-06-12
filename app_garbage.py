@@ -85,4 +85,4 @@ if selected == '📊':
         st.warning("No data yet")
         st.stop()
         
-    df.columns
+    st.write(df.columns)
