@@ -36,7 +36,7 @@ dict_classes = {"Wood":WOOD, "Paper":PAPER, "Plastic":PLASTIC, "Metal":METAL, "G
 def load_dataset():
   return db.fetch().items
 
-def insert_input(datum,moment,t_1,t_2,locatie,kant,temp,wind,weersomstandigheden,rapport):
+def insert_input(datum,operator,t_1,t_2,locatie,kant,temp,wind,weersomstandigheden,rapport):
 
   return db.put({"Datum":str(datum),"Moment":moment,"Starttijd":str(t_1),"Eindtijd":str(t_2),"Locatie":locatie,"kant":kant,"Laagste temperatuur":temp,"Windsnelheid":wind,"Weersomstandigheden":weersomstandigheden,"rapport":rapport})
 
@@ -57,9 +57,11 @@ for type_1 in TYPE:
         dict_values[type_1] = idict
 
 
-st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
+total = st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
 comment = st.text_input("Comment",)
-st.write("The current movie title is", comment)
+
+dict_values["Total"] = total
+dict_values["comment"] = comment
 
 dict_values
 
