@@ -118,6 +118,7 @@ if selected == '📊':
     if submitted:
         # placeholder.empty()
         st.write(id)
+        db.delete(id)
         col_1.warning("Are you sure you want to delete this observation?!")
         submitted_2 = col_1.button("Yes I am sure!",key="submitted_2")
         if submitted_2:
