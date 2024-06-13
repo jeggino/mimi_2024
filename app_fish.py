@@ -50,12 +50,16 @@ if selected == '✍️':
     datum = st.date_input("Date", datetime.datetime.today())
     operator = st.selectbox('Operator',OPERATOR,key='OPERATOR',placeholder="chose an operator...",index=None)
     location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose a location...",index=None)
-  
-    if location=="Small bay":
-      transect_2 = TRANSECT_SB
-    elif location=="Big bay":
-      transect_2 = TRANSECT_BB
-    transect = st.selectbox('Transect',transect_2,key='TRANSECT',placeholder="chose a transect...",index=None)
+
+    try:
+        if location=="Small bay":
+          transect_2 = TRANSECT_SB
+        elif location=="Big bay":
+          transect_2 = TRANSECT_BB
+        transect = st.selectbox('Transect',transect_2,key='TRANSECT',placeholder="chose a transect...",index=None)
+    except:
+        st.warning("Please chose a location!!")
+        st.stop()
     repetition = st.selectbox('Repetition',REPETITION,key='REPETITION',placeholder="chose a repetition...",index=None)
   
     dict_values = {}
