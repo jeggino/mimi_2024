@@ -106,7 +106,7 @@ if selected == '📊':
 
     try:
         a = df.loc[option["selection"]["rows"][0]]["dict_values"]
-        id = df.loc[option["selection"]["rows"][0]]["key"]
+        
         df_3 = pd.DataFrame.from_dict(a, orient='index').stack().to_frame().rename(columns={0:"Ammount"})
         col_2.dataframe(df_3,use_container_width=True)
     except:
@@ -123,6 +123,7 @@ if selected == '📊':
     
     submitted_2 = col_1.button("Yes I am sure!",key="submitted_2")
     if submitted_2:
+        id = df.loc[option["selection"]["rows"][0]]["key"]
         db.delete(id)
         st.rerun()
         
