@@ -113,7 +113,7 @@ if selected == '📊':
         col_2.warning("Select a row")
         st.stop()
         
-    submitted = col_1.toggle("Delete observation",key="submitted_1")
+    submitted = col_1.toggle("Delete observation",key="submitted_1",value=False)
     if not submitted:
         st.stop()
         
