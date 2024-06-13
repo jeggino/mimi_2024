@@ -79,6 +79,8 @@ if selected == '✍️':
 
     
 if selected == '📊':
+
+    col_1,col_2 = st.columns([3,2])
     db_content = load_dataset()
     df = pd.DataFrame(db_content)
     if len(df)==0:
@@ -86,14 +88,14 @@ if selected == '📊':
         st.stop()
         
     df_2 = df[["datum","location","operator","total","comment"]]
-    option = st.dataframe(data=df_2, width=None, height=None, use_container_width=True,
+    option = col_1.dataframe(data=df_2, width=None, height=None, use_container_width=True,
                  hide_index=True, column_order=None, column_config=None, key=None, on_select="rerun", selection_mode="single-row")
 
     try:
         a = df.loc[option["selection"]["rows"][0]]["dict_values"]
         df_3 = pd.DataFrame.from_dict(a, orient='index').stack().to_frame().rename(columns={0:"Ammount"})
-        df_3
+        col_2.dataframe(df_3)
     except:
-        st.warning("Select a row")
+        col_2.warning("Select a row")
     
    
