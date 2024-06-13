@@ -92,7 +92,7 @@ if selected == '📊':
     try:
         option
         df.loc[option["selection"]["rows"]]
-        a = df.loc[option["selection"]["rows"][0],["dict_values"]]
+        a = df.loc[option["selection"]["rows"][0]]["dict_values"]
         # option["selection"]["rows"][0]
         # a
         df_3 = pd.DataFrame.from_dict(a, orient='index')
