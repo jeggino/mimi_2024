@@ -70,7 +70,7 @@ if selected == '✍️':
   
     dict_values = {}
     for genus in GENUS:
-        with st.expander(f"Genus {genus}"):
+        with st.expander(f"{genus}"):
             idict = {}
             for species in SPECES_dict[genus]: 
                 input = st.number_input(species,  step=1,  key=species, label_visibility="visible")
