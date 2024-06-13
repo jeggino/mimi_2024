@@ -97,5 +97,17 @@ if selected == '📊':
         col_2.dataframe(df_3,use_container_width=True)
     except:
         col_2.warning("Select a row")
+        st.stop()
+
+    submitted = col_1.toggle("Delete observation",key="submitted_1",value=False)
+    if not submitted:
+        st.stop()
+        
+    col_1.warning("Are you sure you want to delete this observation?!")
+    submitted_2 = col_1.button("Yes I am sure!",key="submitted_2")
+    if submitted_2:
+        id = df.loc[option["selection"]["rows"][0]]["key"]
+        db.delete(id)
+        st.rerun()
     
    
