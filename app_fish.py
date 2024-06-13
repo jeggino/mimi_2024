@@ -30,6 +30,12 @@ SPECIES =  ['Lipophrys trigloides','Microlipophrys canevae','Microlipophrys nigr
                     'Parablennius gattorugine','Parablennius incognitus','Parablennius pilicornis','Parablennius rouxi',
                     'Parablennius sanguinolentus','Parablennius zvonimiri','Tripterygium delaisi','Tripterygion melanurum','Tripterygion tripteronotum']
 
+SPECES_dict ={"Lipophrys":['Lipophrys trigloides'],
+              "Microlipophrys":['Microlipophrys canevae','Microlipophrys nigriceps'],
+              "Aidablennius":['Aidablennius sphynx'],
+              "Parablennius":['Parablennius gattorugine','Parablennius incognitus','Parablennius pilicornis','Parablennius rouxi','Parablennius sanguinolentus','Parablennius zvonimiri'],
+              "Tripterygium":['Tripterygium delaisi','Tripterygion melanurum','Tripterygion tripteronotum']}
+
 
 # --- FUNCTIONS ---
 def load_dataset():
@@ -64,9 +70,9 @@ if selected == '✍️':
   
     dict_values = {}
     for genus in GENUS:
-        with st.expander(genus):
+        with st.expander(f"Genus {genus}"):
             idict = {}
-            for species in SPECIES: 
+            for species in dict_classes[genus]: 
                 input = st.number_input(species,  step=1,  key=species, label_visibility="visible")
                 idict[species] = input
             dict_values[genus] = idict
