@@ -89,7 +89,6 @@ if selected == '✍️':
         
         insert_input(dict_values,datum,operator,location,transect,repetition,comment)
         st.write(f"Done!")
-        st.rerun()
 
     
 if selected == '📊':
