@@ -113,7 +113,10 @@ if selected == '📊':
         col_2.warning("Select a row")
         st.stop()
 
-    submitted = st.button("Delete observation")
+    submitted = col_2.button("Delete observation",key="submitted_1")
     if submitted:
-        db.delete(id)
-        st.rerun()
+        st.warning("Are you sure you want to delete this observation?!")
+        submitted_2 = col_2.button("Yes I am sure!",key="submitted_2")
+        if submitted_2:
+            st.delete(id)
+            st.rerun()
