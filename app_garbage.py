@@ -80,7 +80,7 @@ if selected == '✍️':
     
 if selected == '📊':
 
-    col_1,col_2 = st.columns([3,2])
+    col_1,col_2 = st.columns([3,1])
     db_content = load_dataset()
     df = pd.DataFrame(db_content)
     if len(df)==0:
@@ -94,7 +94,7 @@ if selected == '📊':
     try:
         a = df.loc[option["selection"]["rows"][0]]["dict_values"]
         df_3 = pd.DataFrame.from_dict(a, orient='index').stack().to_frame().rename(columns={0:"Ammount"})
-        col_2.dataframe(df_3)
+        col_2.dataframe(df_3,use_container_width=False)
     except:
         col_2.warning("Select a row")
     
