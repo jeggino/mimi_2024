@@ -111,8 +111,9 @@ if selected == '📊':
         col_2.dataframe(df_3,use_container_width=True)
     except:
         col_2.warning("Select a row")
+        st.stop()
 
-    with st.form("entry_form", clear_on_submit=True):
-        submitted = st.form_submit_button("Delete observation")
-        if submitted:
-            db.delete(id)
+    submitted = st.button("Delete observation")
+    if submitted:
+        db.delete(id)
+        st.rerun()
