@@ -80,7 +80,7 @@ if selected == '✍️':
     
 if selected == '📊':
 
-    col_1,col_2 = st.columns([3,2])
+    col_1,col_2 = st.columns([3,1])
     db_content = load_dataset()
     df = pd.DataFrame(db_content)
     if len(df)==0:
