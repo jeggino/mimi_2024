@@ -91,8 +91,8 @@ if selected == '📊':
 
     try:
         a = df.loc[option["selection"]["rows"][0]]["dict_values"]
-        df_3 = pd.DataFrame.from_dict(a, orient='index')
-        df_3.stack().to_frame().rename(columns={0:"Ammount"})
+        df_3 = pd.DataFrame.from_dict(a, orient='index').stack().to_frame().rename(columns={0:"Ammount"})
+        df_3
     except:
         st.warning("Select a row")
     
