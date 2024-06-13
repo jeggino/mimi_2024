@@ -89,6 +89,7 @@ if selected == '✍️':
         
         insert_input(dict_values,datum,operator,location,transect,repetition,comment)
         st.write(f"Done!")
+        st.rerun()
 
     
 if selected == '📊':
@@ -112,10 +113,12 @@ if selected == '📊':
     except:
         col_2.warning("Select a row")
         st.stop()
-
-    submitted = col_2.button("Delete observation",key="submitted_1")
+        
+    placeholder = st.empty()
+    submitted = col_2.placeholder.button("Delete observation",key="submitted_1")
     if submitted:
-        st.warning("Are you sure you want to delete this observation?!")
+        placeholder.empty()
+        col_2.warning("Are you sure you want to delete this observation?!")
         submitted_2 = col_2.button("Yes I am sure!",key="submitted_2")
         if submitted_2:
             st.delete(id)
