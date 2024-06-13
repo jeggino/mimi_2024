@@ -91,6 +91,7 @@ if selected == '📊':
 
     try:
         option
+        df.loc[option["selection"]["rows"]]
         a = df.loc[option["selection"]["rows"],["dict_values"]]
         df_3 = pd.DataFrame.from_dict(a, orient='index')
         df_3
