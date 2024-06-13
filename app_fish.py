@@ -106,7 +106,13 @@ if selected == '📊':
 
     try:
         a = df.loc[option["selection"]["rows"][0]]["dict_values"]
+        id = df.loc[option["selection"]["rows"][0]]["key"]
         df_3 = pd.DataFrame.from_dict(a, orient='index').stack().to_frame().rename(columns={0:"Ammount"})
         col_2.dataframe(df_3,use_container_width=True)
     except:
         col_2.warning("Select a row")
+
+    with st.form("entry_form", clear_on_submit=True):
+        submitted = st.form_submit_button("Delete observation")
+        if submitted:
+            db.delete(id)
