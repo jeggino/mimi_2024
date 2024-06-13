@@ -92,9 +92,9 @@ if selected == '📊':
     try:
         option
         df.loc[option["selection"]["rows"]]
-        a = df.loc[option["selection"]["rows"],["dict_values"]]
-        option["selection"]["rows"][0]
-        a
+        a = df.loc[option["selection"]["rows"][0],["dict_values"]]
+        # option["selection"]["rows"][0]
+        # a
         df_3 = pd.DataFrame.from_dict(a, orient='index')
         df_3
     except:
