@@ -113,12 +113,10 @@ if selected == '📊':
         col_2.warning("Select a row")
         st.stop()
         
-    placeholder = col_1.empty()
-    submitted = placeholder.toggle("Delete observation",key="submitted_1")
+    submitted = col_1.toggle("Delete observation",key="submitted_1")
     if not submitted:
         st.stop()
         
-    placeholder.empty()
     col_1.warning("Are you sure you want to delete this observation?!")
     
     submitted_2 = col_1.button("Yes I am sure!",key="submitted_2")
