@@ -116,9 +116,9 @@ if selected == '📊':
     placeholder = col_1.empty()
     submitted = placeholder.button("Delete observation",key="submitted_1")
     if not submitted:
-        placeholder.empty()
-        # db.delete(id)
-        st.stop()
+                st.stop()
+        
+    placeholder.empty()
     col_1.warning("Are you sure you want to delete this observation?!")
     submitted_2 = col_1.button("Yes I am sure!",key="submitted_2")
     if submitted_2:
