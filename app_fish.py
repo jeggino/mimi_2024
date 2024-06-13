@@ -124,7 +124,3 @@ if selected == '📊':
         id = df.loc[option["selection"]["rows"][0]]["key"]
         db.delete(id)
         st.rerun()
-        
-    submitted_3 = col_1.button("No, I don't want to!",key="submitted_3")
-    if submitted_3:
-        st.rerun()
