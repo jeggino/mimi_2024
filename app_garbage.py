@@ -90,11 +90,8 @@ if selected == '📊':
                  hide_index=True, column_order=None, column_config=None, key=None, on_select="rerun", selection_mode="single-row")
 
     try:
-        option
         df.loc[option["selection"]["rows"]]
         a = df.loc[option["selection"]["rows"][0]]["dict_values"]
-        # option["selection"]["rows"][0]
-        # a
         df_3 = pd.DataFrame.from_dict(a, orient='index')
         df_3
     except:
