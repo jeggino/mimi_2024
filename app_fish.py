@@ -114,11 +114,11 @@ if selected == '📊':
         st.stop()
         
     # placeholder = col_2.empty()
-    submitted = col_2.button("Delete observation",key="submitted_1")
+    submitted = col_1.button("Delete observation",key="submitted_1")
     if submitted:
         # placeholder.empty()
-        col_2.warning("Are you sure you want to delete this observation?!")
-        submitted_2 = col_2.button("Yes I am sure!",key="submitted_2")
+        col_1.warning("Are you sure you want to delete this observation?!")
+        submitted_2 = col_1.button("Yes I am sure!",key="submitted_2")
         if submitted_2:
             st.delete(id)
             st.rerun()
