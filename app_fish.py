@@ -121,4 +121,4 @@ if selected == '📊':
         submitted_2 = col_1.button("Yes I am sure!",key="submitted_2")
         if submitted_2:
             st.delete(id)
-            st.rerun()
+            # st.rerun()
