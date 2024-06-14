@@ -26,7 +26,7 @@ db = deta.Base("df_fish")
 
 # --- COSTANTS ---
 
-OPERATOR = ["Michael","Noah", "Other"]
+OPERATOR = ["Maddie","Brooke", "Ashlyn","Alexis","Other"]
 LOCATION = ["Small bay","Big bay"]
 TRANSECT_SB = ["SB1","SB2","SB3","SB4",'SB5','SB6','SB7','SB8']
 TRANSECT_BB = ['BB1','BB2','BB3']
@@ -47,10 +47,10 @@ SPECES_dict ={"Lipophrys":['Lipophrys trigloides'],
 def load_dataset():
   return db.fetch().items
 
-def insert_input(dict_values,datum,operator,location,transect,repetition,comment):
+def insert_input(dict_values,datum,operator,location,trial,repetition,comment):
 
   return db.put({"dict_values":dict_values,"transect":transect,"comment":comment,"datum":str(datum),
-                "operator":operator,"location":location,"repetition":repetition})
+                "operator":operator,"location":location,"trial":trial})
 
 
 # --- APP ---
@@ -67,7 +67,7 @@ try:
 except:
     st.warning("Please chose a location!!")
     st.stop()
-repetition = st.selectbox('Repetition',REPETITION,key='REPETITION',placeholder="chose a repetition...",index=None)
+repetition = st.selectbox('Repetition',REPETITION,key='REPETITION',placeholder="chose a trial...",index=None)
 
 dict_values = {}
 for genus in GENUS:
@@ -88,7 +88,7 @@ if submitted:
         st.warning("Please complete all fields")
         st.stop()
     
-    insert_input(dict_values,datum,operator,location,transect,repetition,comment)
+    insert_input(dict_values,datum,operator,location,transect,trial,comment)
     st.write(f"Done!")
 
     
