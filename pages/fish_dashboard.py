@@ -13,7 +13,7 @@ st.markdown("""
     unsafe_allow_html=True)
 
 st.sidebar.page_link("dashboard.py", label="g", icon="🏠")
-st.sidebar.page_link("fish_dashboard.py", label="gg", icon="🐟")
+st.sidebar.page_link("pages/fish_dashboard.py", label="gg", icon="🐟")
 
 
 # --- CONNECT TO DETA ---
