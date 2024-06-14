@@ -31,16 +31,16 @@ LOCATION = ["Small bay","Big bay"]
 TRANSECT_SB = ["SB1","SB2","SB3","SB4",'SB5','SB6','SB7','SB8']
 TRANSECT_BB = ['BB1','BB2','BB3']
 REPETITION = ['1','2','3','4','5','6','7','8','9','10']
-GENUS = ["Lipophrys","Microlipophrys","Aidablennius","Parablennius","Tripterygium"]
+GENUS = ["Lipophrys","Microlipophrys","Aidablennius","Parablennius","Tripterygion"]
 SPECIES =  ['Lipophrys trigloides','Microlipophrys canevae','Microlipophrys nigriceps','Aidablennius sphynx',
                     'Parablennius gattorugine','Parablennius incognitus','Parablennius pilicornis','Parablennius rouxi',
-                    'Parablennius sanguinolentus','Parablennius zvonimiri','Tripterygium delaisi','Tripterygion melanurum','Tripterygion tripteronotum']
+                    'Parablennius sanguinolentus','Parablennius zvonimiri','Tripterygion delaisi','Tripterygion melanurum','Tripterygion tripteronotum']
 
 SPECES_dict ={"Lipophrys":['Lipophrys trigloides'],
               "Microlipophrys":['Microlipophrys canevae','Microlipophrys nigriceps'],
               "Aidablennius":['Aidablennius sphynx'],
               "Parablennius":['Parablennius gattorugine','Parablennius incognitus','Parablennius pilicornis','Parablennius rouxi','Parablennius sanguinolentus','Parablennius zvonimiri'],
-              "Tripterygium":['Tripterygium delaisi','Tripterygion melanurum','Tripterygion tripteronotum']}
+              "Tripterygion":['Tripterygion delaisi','Tripterygion melanurum','Tripterygion tripteronotum']}
 
 
 # --- FUNCTIONS ---
@@ -67,7 +67,7 @@ try:
 except:
     st.warning("Please chose a location!!")
     st.stop()
-repetition = st.selectbox('Repetition',REPETITION,key='REPETITION',placeholder="chose a trial...",index=None)
+repetition = st.selectbox('Trial',REPETITION,key='REPETITION',placeholder="chose a trial...",index=None)
 
 dict_values = {}
 for genus in GENUS:
