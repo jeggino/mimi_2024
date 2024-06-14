@@ -1,9 +1,8 @@
 import streamlit as st
 
-if st.button("Home"):
-    st.switch_page("dashboard.py")
-if st.button("Page 1"):
-    st.switch_page("pages/fish_dashboard.py")
+
+st.sidebar.page_link("dashboard.py", label="Switch accounts")
+st.sidebar.page_link("pages/fish_dashboard.py", label="Your profile")
 
 
 
