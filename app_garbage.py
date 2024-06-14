@@ -56,9 +56,6 @@ operator = st.selectbox('Operator',OPERATOR,key='OPERATOR',placeholder="chose an
 location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose a location...",index=None)
 day_storm = st.selectbox('Number of days since the last storm',DAY_STORM,key='DAY_STORM',placeholder="make a choice...",index=None)
 
-.Number of days from  last storm:
-
-
 dict_values = {}
 for type_1 in TYPE:
     with st.expander(type_1):
