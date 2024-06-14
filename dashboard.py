@@ -1,4 +1,6 @@
 import streamlit as st
+from streamlit_player import st_player
+
 
 # --- CONFIGURATION ---
 st.set_page_config(
@@ -19,4 +21,5 @@ st.sidebar.page_link("dashboard.py", label="", icon="🏠")
 st.sidebar.page_link("pages/fish_dashboard.py", label="", icon="🐟")
 st.sidebar.page_link("pages/dashboard_garbage.py", label="", icon="🗑️")
 
-st.image("https://siviaggia.it/wp-content/uploads/sites/2/2020/05/baia-di-ieranto.jpg")
+# Embed a youtube video
+st_player("https://www.youtube.com/watch?v=CHa8c-xUHlI")
