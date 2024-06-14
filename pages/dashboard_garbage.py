@@ -6,6 +6,12 @@ import datetime
 from deta import Deta
 
 # --- CONFIGURATION ---
+st.set_page_config(
+    page_title="garbage",
+    page_icon="🗑️",
+    layout="wide",
+    
+)
 
 
 st.markdown("""
