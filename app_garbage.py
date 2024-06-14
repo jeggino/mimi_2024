@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_option_menu import option_menu
 
 import pandas as pd
 import datetime
@@ -49,72 +48,32 @@ def insert_input(dict_values,total,comment,datum,operator,location):
   return db.put({"dict_values":dict_values,"total":total,"comment":comment,"datum":str(datum),
                 "operator":operator,"location":location})
 
-selected = option_menu(None, ['✍️','📊'], 
-                       icons=None,
-                       default_index=0,
-                       orientation="horizontal",
-                       )
+
 # --- APP ---
-if selected == '✍️':
-    datum = st.date_input("Date", datetime.datetime.today())
-    operator = st.selectbox('Operator',OPERATOR,key='OPERATOR',placeholder="chose an operator...",index=None)
-    location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose a location...",index=None)
-    
-    
-    dict_values = {}
-    for type_1 in TYPE:
-        with st.expander(type_1):
-            idict = {}
-            for type_2 in dict_classes[type_1]: 
-                input = st.number_input(type_2,  step=1,  key=type_1 + type_2, label_visibility="visible")
-                idict[type_2] = input
-            dict_values[type_1] = idict
-    
-    
-    total = st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
-    comment = st.text_input("Comment",)
-    submitted = st.button("Insert data")
-    
-    if submitted:
-    
-        if operator==None or location==None or total==0 or comment==None:
-            st.warning("Please complete all fields")
-            st.stop()
-        
-        insert_input(dict_values,total,comment,datum,operator,location)
-        st.write(f"Done!")
+datum = st.date_input("Date", datetime.datetime.today())
+operator = st.selectbox('Operator',OPERATOR,key='OPERATOR',placeholder="chose an operator...",index=None)
+location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose a location...",index=None)
 
-    
-if selected == '📊':
 
-    col_1,col_2 = st.columns([4,3])
-    db_content = load_dataset()
-    df = pd.DataFrame(db_content)
-    if len(df)==0:
-        st.warning("No data yet")
-        st.stop()
-        
-    df_2 = df[["datum","location","operator","total","comment"]]
-    option = col_1.dataframe(data=df_2, width=None, height=None, use_container_width=True,
-                 hide_index=True, column_order=None, column_config=None, key=None, on_select="rerun", selection_mode="single-row")
+dict_values = {}
+for type_1 in TYPE:
+with st.expander(type_1):
+    idict = {}
+    for type_2 in dict_classes[type_1]: 
+        input = st.number_input(type_2,  step=1,  key=type_1 + type_2, label_visibility="visible")
+        idict[type_2] = input
+    dict_values[type_1] = idict
 
-    try:
-        a = df.loc[option["selection"]["rows"][0]]["dict_values"]
-        df_3 = pd.DataFrame.from_dict(a, orient='index').stack().to_frame().rename(columns={0:"Ammount"})
-        col_2.dataframe(df_3,use_container_width=True)
-    except:
-        col_1.warning("Select a row")
-        st.stop()
 
-    submitted = col_1.toggle("Delete observation",key="submitted_1",value=False)
-    if not submitted:
-        st.stop()
-        
-    col_1.warning("Are you sure you want to delete this observation?!")
-    submitted_2 = col_1.button("Yes I am sure!",key="submitted_2")
-    if submitted_2:
-        id = df.loc[option["selection"]["rows"][0]]["key"]
-        db.delete(id)
-        st.rerun()
-    
-   
+total = st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
+comment = st.text_input("Comment",)
+submitted = st.button("Insert data")
+
+if submitted:
+
+if operator==None or location==None or total==0 or comment==None:
+    st.warning("Please complete all fields")
+    st.stop()
+
+insert_input(dict_values,total,comment,datum,operator,location)
+st.write(f"Done!")
