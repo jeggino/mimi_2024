@@ -87,8 +87,12 @@ if submitted:
     if operator==None or location==None:
         st.warning("Please complete all fields")
         st.stop()
+
+
     
     insert_input(dict_values,datum,operator,location,transect,trial,comment)
     st.write(f"Done!")
 
+
+st.page_link("pages/fish_dashboard.py", label="Check the data", icon="🏠")
     
