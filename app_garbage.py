@@ -57,12 +57,12 @@ location = st.selectbox('Location',LOCATION,key='LOCATION',placeholder="chose a 
 
 dict_values = {}
 for type_1 in TYPE:
-with st.expander(type_1):
-    idict = {}
-    for type_2 in dict_classes[type_1]: 
-        input = st.number_input(type_2,  step=1,  key=type_1 + type_2, label_visibility="visible")
-        idict[type_2] = input
-    dict_values[type_1] = idict
+    with st.expander(type_1):
+        idict = {}
+        for type_2 in dict_classes[type_1]: 
+            input = st.number_input(type_2,  step=1,  key=type_1 + type_2, label_visibility="visible")
+            idict[type_2] = input
+        dict_values[type_1] = idict
 
 
 total = st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
@@ -71,9 +71,9 @@ submitted = st.button("Insert data")
 
 if submitted:
 
-if operator==None or location==None or total==0 or comment==None:
-    st.warning("Please complete all fields")
-    st.stop()
-
-insert_input(dict_values,total,comment,datum,operator,location)
-st.write(f"Done!")
+    if operator==None or location==None or total==0 or comment==None:
+        st.warning("Please complete all fields")
+        st.stop()
+    
+    insert_input(dict_values,total,comment,datum,operator,location)
+    st.write(f"Done!")
