@@ -52,11 +52,7 @@ def insert_input(dict_values,datum,operator,location,transect,repetition,comment
   return db.put({"dict_values":dict_values,"transect":transect,"comment":comment,"datum":str(datum),
                 "operator":operator,"location":location,"repetition":repetition})
 
-selected = option_menu(None, ['✍️','📊'], 
-                       icons=None,
-                       default_index=0,
-                       orientation="horizontal",
-                       )
+
 # --- APP ---
 datum = st.date_input("Date", datetime.datetime.today())
 operator = st.selectbox('Operator',OPERATOR,key='OPERATOR',placeholder="chose an operator...",index=None)
