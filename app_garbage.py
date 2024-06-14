@@ -72,7 +72,7 @@ submitted = st.button("Insert data")
 
 if submitted:
 
-    if operator==None or location==None or total==0 or comment==None:
+    if operator==None or location==None or total==0 or comment==None or day_storm==None:
         st.warning("Please complete all fields")
         st.stop()
     
