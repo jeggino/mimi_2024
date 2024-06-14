@@ -6,8 +6,8 @@ import datetime
 from deta import Deta
 
 st.set_page_config(
-    page_title="",
-    page_icon="🐟",
+    page_title="dashboard",
+    page_icon="🌊",
     layout="wide",
     
 )
