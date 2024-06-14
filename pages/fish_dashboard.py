@@ -45,7 +45,7 @@ if len(df)==0:
     st.warning("No data yet")
     st.stop()
     
-df_2 = df[["datum","location","operator","transect","repetition","comment"]]
+df_2 = df[["datum","location","operator","transect","trial","comment"]]
 option = col_1.dataframe(data=df_2, width=None, height=None, use_container_width=True,
              hide_index=True, column_order=None, column_config=None, key=None, on_select="rerun", selection_mode="single-row")
 
