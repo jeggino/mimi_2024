@@ -28,7 +28,7 @@ db = deta.Base("df_garbage")
 
 OPERATOR = ["Michael","Noah", "Other"]
 LOCATION = ["Small beach","Platform","Floor of the small bay","Floor of the big bay","Big beach","Sea surface"]
-DAY_STORM = ["1-2", "3-4", 5+""]
+DAY_STORM = ["1-2","3-4","5+"]
 TYPE = ["Wood", "Paper", "Plastic", "Metal", "Glass", "Other"]
 PLASTIC = ["bottle", "cup", "piece S", "piece M", "piece L", "bottle S", "bottle M", "bottle L", "bag S", "bag M", "bag L", "pen cup"]
 OTHER = ["cigarette butt" ,"styrofoam S", "styrofoam M", "styrofoam L", "Clothe", "clothe tag", "tissue", "boat fragment S", "boat fragment M",
