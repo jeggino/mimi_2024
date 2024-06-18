@@ -15,9 +15,9 @@ st.set_page_config(
 )
 
 
-choose = option_menu("App Gallery", ["About", "Photo Editing", "Project Planning", "Python e-Course", "Contact"],
-                     icons=['house', 'camera fill', 'kanban', 'book','person lines fill'],
-                     menu_icon="app-indicator", default_index=0,
+choose = option_menu("App Gallery", ["Project Planning", "Python e-Course"],
+                     icons=['kanban', 'book'],
+                     menu_icon="app-indicator", default_index=1,
                      styles={
     "container": {"padding": "5!important", "background-color": "#fafafa"},
     "icon": {"color": "orange", "font-size": "25px"}, 
@@ -54,7 +54,7 @@ db_content = load_dataset()
 df = pd.DataFrame(db_content)
 
 # --- APP ---
-if choose == "About":
+if choose == "Python e-Course":
     col_1,col_2 = st.columns([4,3])
     
     if len(df)==0:
@@ -84,7 +84,7 @@ if choose == "About":
         db.delete(id)
         st.rerun()
 
-elif choose == "Photo Editing":
+elif choose == "Project Planning":
     df_concat = pd.DataFrame()
     
     for i in range(len(df)):
