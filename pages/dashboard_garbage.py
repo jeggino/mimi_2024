@@ -15,16 +15,9 @@ st.set_page_config(
 )
 
 
-choose = option_menu("App Gallery", ["Project Planning", "Python e-Course"],
+choose = option_menu("App Gallery", ["Observations", "Sunburst chart"],
                      icons=['kanban', 'book'],
-                     menu_icon="app-indicator", default_index=1,
-                     styles={
-    "container": {"padding": "5!important", "background-color": "#fafafa"},
-    "icon": {"color": "orange", "font-size": "25px"}, 
-    "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-    "nav-link-selected": {"background-color": "#02ab21"},
-}
-)
+                     menu_icon="app-indicator")
     
 
 
@@ -54,7 +47,7 @@ db_content = load_dataset()
 df = pd.DataFrame(db_content)
 
 # --- APP ---
-if choose == "Python e-Course":
+if choose == "Observations":
     col_1,col_2 = st.columns([4,3])
     
     if len(df)==0:
@@ -84,7 +77,7 @@ if choose == "Python e-Course":
         db.delete(id)
         st.rerun()
 
-elif choose == "Project Planning":
+elif choose == "Sunburst chart":
     df_concat = pd.DataFrame()
     
     for i in range(len(df)):
