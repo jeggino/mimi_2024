@@ -47,7 +47,7 @@ SPECES_dict ={"Lipophrys":['Lipophrys trigloides'],
 def load_dataset():
   return db.fetch().items
 
-def insert_input(dict_values,datum,operator,location,trial,repetition,comment):
+def insert_input(dict_values,datum,operator,location,transect,trial,comment):
 
   return db.put({"dict_values":dict_values,"transect":transect,"comment":comment,"datum":str(datum),
                 "operator":operator,"location":location,"trial":trial})
