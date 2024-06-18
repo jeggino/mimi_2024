@@ -66,7 +66,7 @@ for type_1 in TYPE:
         dict_values[type_1] = idict
 
 
-total = st.number_input("Total weight",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
+total = st.number_input("Total weight (in grams)",  step=1,  key="TOTAL WEIGHT", help=None, on_change=None, placeholder=None, disabled=False, label_visibility="visible")
 comment = st.text_input("Comment",)
 submitted = st.button("Insert data")
 
