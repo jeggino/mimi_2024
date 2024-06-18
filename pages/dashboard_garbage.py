@@ -17,7 +17,7 @@ st.set_page_config(
 
 choose = option_menu(menu_title=None, options = ["Observations", "Sunburst chart"],
                      icons=['book','kanban'],
-                     orientation = "orizontal"
+                     orientation = "horizontal"
                      )
     
 
