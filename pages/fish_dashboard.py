@@ -54,7 +54,7 @@ try:
     df_3 = pd.DataFrame.from_dict(a, orient='index').stack().to_frame().rename(columns={0:"Ammount"})
     col_2.dataframe(df_3,use_container_width=True)
 except:
-    col_2.warning("Select a row")
+    col_1.warning("Select a row")
     st.stop()
     
 submitted = col_1.toggle("Delete observation",key="submitted_1",value=False)
