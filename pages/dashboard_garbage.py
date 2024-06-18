@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 
-choose = option_menu(["Observations", "Sunburst chart"],
+choose = option_menu(options = ["Observations", "Sunburst chart"],
                      icons=['book','kanban'],
                      )
     
