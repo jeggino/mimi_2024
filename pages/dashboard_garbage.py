@@ -14,17 +14,17 @@ st.set_page_config(
     
 )
 
-with st.sidebar:
-    choose = option_menu("App Gallery", ["About", "Photo Editing", "Project Planning", "Python e-Course", "Contact"],
-                         icons=['house', 'camera fill', 'kanban', 'book','person lines fill'],
-                         menu_icon="app-indicator", default_index=0,
-                         styles={
-        "container": {"padding": "5!important", "background-color": "#fafafa"},
-        "icon": {"color": "orange", "font-size": "25px"}, 
-        "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-        "nav-link-selected": {"background-color": "#02ab21"},
-    }
-    )
+
+choose = option_menu("App Gallery", ["About", "Photo Editing", "Project Planning", "Python e-Course", "Contact"],
+                     icons=['house', 'camera fill', 'kanban', 'book','person lines fill'],
+                     menu_icon="app-indicator", default_index=0,
+                     styles={
+    "container": {"padding": "5!important", "background-color": "#fafafa"},
+    "icon": {"color": "orange", "font-size": "25px"}, 
+    "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+    "nav-link-selected": {"background-color": "#02ab21"},
+}
+)
     
 
 
@@ -54,7 +54,7 @@ db_content = load_dataset()
 df = pd.DataFrame(db_content)
 
 # --- APP ---
-if chose == "About":
+if choose == "About":
     col_1,col_2 = st.columns([4,3])
     
     if len(df)==0:
@@ -84,7 +84,7 @@ if chose == "About":
         db.delete(id)
         st.rerun()
 
-elif chose == "Photo Editing":
+elif choose == "Photo Editing":
     df_concat = pd.DataFrame()
     
     for i in range(len(df)):
