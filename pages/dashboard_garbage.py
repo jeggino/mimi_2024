@@ -15,9 +15,9 @@ st.set_page_config(
 )
 
 
-choose = option_menu("App Gallery", ["Observations", "Sunburst chart"],
-                     icons=['kanban', 'book'],
-                     menu_icon="app-indicator")
+choose = option_menu(["Observations", "Sunburst chart"],
+                     icons=['book','kanban'],
+                     )
     
 
 
