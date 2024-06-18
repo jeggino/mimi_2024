@@ -67,7 +67,7 @@ try:
 except:
     st.warning("Please chose a location!!")
     st.stop()
-repetition = st.selectbox('Trial',REPETITION,key='REPETITION',placeholder="chose a trial...",index=None)
+trial = st.selectbox('Trial',REPETITION,key='REPETITION',placeholder="chose a trial...",index=None)
 
 dict_values = {}
 for genus in GENUS:
