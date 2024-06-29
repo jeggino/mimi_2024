@@ -63,6 +63,7 @@ a["location"] = a["row"].apply(lambda x: df.loc[x,"location"])
 a["day_storm"] = a["row"].apply(lambda x: df.loc[x,"day_storm"])
 
 a = a.groupby(['location',"level_0","level_1"],as_index=False)["value"].sum()
+a
 
 # --- APP ---
 if choose == "Observations":
