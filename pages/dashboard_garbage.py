@@ -58,7 +58,7 @@ for i in range(len(df)):
 a = df_concat.stack().to_frame().reset_index()\
 .rename(columns={0:"value","level_2":"row"})
 
-a["datum"] = a["row"].apply(lambda x: df.loc[x,"datum"])
+# a["datum"] = a["row"].apply(lambda x: df.loc[x,"datum"])
 a["location"] = a["row"].apply(lambda x: df.loc[x,"location"])
 a["day_storm"] = a["row"].apply(lambda x: df.loc[x,"day_storm"])
 
