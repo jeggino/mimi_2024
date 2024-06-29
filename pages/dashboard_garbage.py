@@ -105,14 +105,14 @@ elif choose == "Charts":
     
     fig = px.sunburst(a_sunplot, path=['location',"level_0","level_1"], values='value')
     fig_2 = px.sunburst(a_sunplot_2, path=["level_0","level_1"], values='value')
-
-    st.title("Quantity of items for site.")
+    
+    st.header("Quantity of items for site.", divider='green')
     st.plotly_chart(fig, use_container_width=True)
     "---"
-    st.title("Quantity of items for tipology.")
+    st.header("Quantity of items for tipology.", divider='green')
     st.plotly_chart(fig_2, use_container_width=True)
     "---"
-    st.title("Total weight for location.")
+    st.header("Total weight for location.", divider='green')
     df_bar_chart = df_2.groupby('location',as_index=False)['total'].sum()
     st.bar_chart(df_bar_chart,x="location", y="total",horizontal=True)
     
