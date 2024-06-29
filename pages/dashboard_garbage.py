@@ -65,6 +65,8 @@ a["datum"] = a["row"].apply(lambda x: df.loc[x,"datum"])
 a["location"] = a["row"].apply(lambda x: df.loc[x,"location"])
 a["day_storm"] = a["row"].apply(lambda x: df.loc[x,"day_storm"])
 
+df_2 = df[["datum","location","day_storm","operator","total","comment"]]
+
 # --- APP ---
 if choose == "Observations":
     col_1,col_2 = st.columns([4,3])
@@ -73,7 +75,6 @@ if choose == "Observations":
         st.warning("No data yet")
         st.stop()
         
-    df_2 = df[["datum","location","day_storm","operator","total","comment"]]
     option = col_1.dataframe(data=df_2, use_container_width=True,hide_index=True, on_select="rerun", selection_mode="single-row")
     # st.download_button(label="Download data as CSV",data=a,file_name="df.csv",mime="text/csv")
     
@@ -110,7 +111,7 @@ elif choose == "Sunburst chart":
     "---"
     st.plotly_chart(fig_2, use_container_width=True)
     "---"
-    a
+    df_2
 
     
    
