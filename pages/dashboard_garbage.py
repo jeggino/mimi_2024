@@ -76,11 +76,7 @@ if choose == "Observations":
     df_2 = df[["datum","location","day_storm","operator","total","comment"]]
     option = col_1.dataframe(data=df_2, width=None, height=None, use_container_width=True,
                  hide_index=True, column_order=None, column_config=None, key=None, on_select="rerun", selection_mode="single-row")
-    col_1.download_button(
-    label="Download data as CSV",
-    data=a,
-    file_name="df.csv",
-    mime="text/csv")
+    col_1.download_button(label="Download data as CSV",data=a,file_name="df.csv",mime="text/csv")
     
     try:
         a = df.loc[option["selection"]["rows"][0]]["dict_values"]
