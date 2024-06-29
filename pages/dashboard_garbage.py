@@ -62,7 +62,7 @@ a["datum"] = a["row"].apply(lambda x: df.loc[x,"datum"])
 a["location"] = a["row"].apply(lambda x: df.loc[x,"location"])
 a["day_storm"] = a["row"].apply(lambda x: df.loc[x,"day_storm"])
 
-a = a.groupby(['location',"level_0","level_1"],as_index=False)["value"].sum()
+a_sunplot = a.groupby(['location',"level_0","level_1"],as_index=False)["value"].sum()
 a
 
 # --- APP ---
@@ -107,7 +107,7 @@ elif choose == "Sunburst chart":
 
     
     import plotly.express as px
-    fig = px.sunburst(a, path=['location',"level_0","level_1"], values='value')
+    fig = px.sunburst(a_sunplot, path=['location',"level_0","level_1"], values='value')
     
     st.plotly_chart(fig, use_container_width=True)
 
