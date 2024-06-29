@@ -76,7 +76,8 @@ if choose == "Observations":
         st.stop()
 
     with st.expander("Entire dataset"):
-        st.dataframe(data=a, column_order=["datum","location","day_storm","level_0","level_1","value"],
+        st_entireDF = a[a.value!=0]
+        st.dataframe(data=st_entireDF, column_order=["datum","location","day_storm","level_0","level_1","value"],
                      use_container_width=True,hide_index=True)
 
     col_1,col_2 = st.columns([4,3])
