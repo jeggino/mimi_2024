@@ -75,7 +75,7 @@ if choose == "Observations":
         st.warning("No data yet")
         st.stop()
 
-    with st.expander("Entire dataset"):
+    with st.expander("Whole  dataset"):
         st_entireDF = a[a.value!=0]
         st.dataframe(data=st_entireDF, column_order=["datum","location","day_storm","level_0","level_1","value"],
                      use_container_width=True,hide_index=True)
