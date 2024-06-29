@@ -62,6 +62,7 @@ a = df_concat.stack().to_frame().reset_index()\
 .rename(columns={0:"value","level_2":"row"})
 
 a["datum"] = a["row"].apply(lambda x: df.loc[x,"datum"])
+a["operator"] = a["row"].apply(lambda x: df.loc[x,"operator"])
 a["location"] = a["row"].apply(lambda x: df.loc[x,"location"])
 a["day_storm"] = a["row"].apply(lambda x: df.loc[x,"day_storm"])
 
@@ -77,7 +78,7 @@ if choose == "Observations":
 
     with st.expander("Whole  dataset"):
         st_entireDF = a[a.value!=0]
-        st.dataframe(data=st_entireDF, column_order=["datum","location","day_storm","level_0","level_1","value"],
+        st.dataframe(data=st_entireDF, column_order=["datum","location","operator"","day_storm","level_0","level_1","value"],
                      use_container_width=True,hide_index=True)
 
     col_1,col_2 = st.columns([4,3])
