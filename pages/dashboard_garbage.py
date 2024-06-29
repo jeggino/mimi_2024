@@ -17,7 +17,7 @@ st.set_page_config(
 )
 
 
-choose = option_menu(menu_title=None, options = ["Observations", "Sunburst chart"],
+choose = option_menu(menu_title=None, options = ["Observations", "Charts"],
                      icons=['book','kanban'],
                      orientation = "horizontal"
                      )
@@ -99,7 +99,7 @@ if choose == "Observations":
 
 
 
-elif choose == "Sunburst chart":
+elif choose == "Charts":
     a_sunplot = a.groupby(['location',"level_0","level_1"],as_index=False)["value"].sum()
     a_sunplot_2 = a.groupby(["level_0","level_1"],as_index=False)["value"].sum()
     
