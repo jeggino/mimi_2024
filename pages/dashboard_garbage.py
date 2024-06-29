@@ -108,10 +108,10 @@ elif choose == "Charts":
     
     st.header("Quantity of items for site.", divider='grey')
     st.plotly_chart(fig, use_container_width=True)
-    "---"
+
     st.header("Quantity of items for tipology.", divider='grey')
     st.plotly_chart(fig_2, use_container_width=True)
-    "---"
+    
     st.header("Total weight for location.", divider='grey')
     df_bar_chart = df_2.groupby('location',as_index=False)['total'].sum()
     st.bar_chart(df_bar_chart,x="location", y="total",horizontal=True)
