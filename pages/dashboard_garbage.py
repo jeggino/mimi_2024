@@ -47,6 +47,23 @@ def load_dataset():
 db_content = load_dataset()
 df = pd.DataFrame(db_content)
 
+df_concat = pd.DataFrame()
+
+for i in range(len(df)):
+    df_temp = pd.DataFrame.from_dict(df.dict_values[i], orient='index')\
+    .stack().to_frame().rename(columns={0:i})
+    
+    df_concat= pd.concat([df_concat,df_temp],axis=1)
+
+a = df_concat.stack().to_frame().reset_index()\
+.rename(columns={0:"value","level_2":"row"})
+
+a["datum"] = a["row"].apply(lambda x: df.loc[x,"datum"])
+a["location"] = a["row"].apply(lambda x: df.loc[x,"location"])
+a["day_storm"] = a["row"].apply(lambda x: df.loc[x,"day_storm"])
+
+a = a.groupby(['location',"level_0","level_1"],as_index=False)["value"].sum()
+
 # --- APP ---
 if choose == "Observations":
     col_1,col_2 = st.columns([4,3])
@@ -78,26 +95,17 @@ if choose == "Observations":
         db.delete(id)
         st.rerun()
 
+    col_1.download_button(
+        label="Download data as CSV",
+        data=a,
+        file_name="df.csv",
+        mime="text/csv",
+    )
+
 elif choose == "Sunburst chart":
-    df_concat = pd.DataFrame()
-    
-    for i in range(len(df)):
-        df_temp = pd.DataFrame.from_dict(df.dict_values[i], orient='index')\
-        .stack().to_frame().rename(columns={0:i})
-        
-        df_concat= pd.concat([df_concat,df_temp],axis=1)
-    
-    a = df_concat.stack().to_frame().reset_index()\
-    .rename(columns={0:"value","level_2":"row"})
-    
-    a["datum"] = a["row"].apply(lambda x: df.loc[x,"datum"])
-    a["location"] = a["row"].apply(lambda x: df.loc[x,"location"])
-    a["day_storm"] = a["row"].apply(lambda x: df.loc[x,"day_storm"])
-    
-    a = a.groupby(['location',"level_0","level_1"],as_index=False)["value"].sum()
+
     
     import plotly.express as px
-    df = px.data.tips()
     fig = px.sunburst(a, path=['location',"level_0","level_1"], values='value')
     
     st.plotly_chart(fig, use_container_width=True)
