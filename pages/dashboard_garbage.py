@@ -4,6 +4,8 @@ from streamlit_option_menu import option_menu
 import pandas as pd
 import datetime
 
+import plotly.express as px
+
 from deta import Deta
 
 # --- CONFIGURATION ---
@@ -44,6 +46,7 @@ db = deta.Base("df_garbage")
 def load_dataset():
   return db.fetch().items
 
+# --- DATASET ---
 db_content = load_dataset()
 df = pd.DataFrame(db_content)
 
@@ -58,12 +61,9 @@ for i in range(len(df)):
 a = df_concat.stack().to_frame().reset_index()\
 .rename(columns={0:"value","level_2":"row"})
 
-# a["datum"] = a["row"].apply(lambda x: df.loc[x,"datum"])
+a["datum"] = a["row"].apply(lambda x: df.loc[x,"datum"])
 a["location"] = a["row"].apply(lambda x: df.loc[x,"location"])
 a["day_storm"] = a["row"].apply(lambda x: df.loc[x,"day_storm"])
-
-a_sunplot = a.groupby(['location',"level_0","level_1"],as_index=False)["value"].sum()
-a
 
 # --- APP ---
 if choose == "Observations":
@@ -76,7 +76,7 @@ if choose == "Observations":
     df_2 = df[["datum","location","day_storm","operator","total","comment"]]
     option = col_1.dataframe(data=df_2, width=None, height=None, use_container_width=True,
                  hide_index=True, column_order=None, column_config=None, key=None, on_select="rerun", selection_mode="single-row")
-    col_1.download_button(label="Download data as CSV",data=a,file_name="df.csv",mime="text/csv")
+    st.download_button(label="Download data as CSV",data=a,file_name="df.csv",mime="text/csv")
     
     try:
         a = df.loc[option["selection"]["rows"][0]]["dict_values"]
@@ -100,9 +100,7 @@ if choose == "Observations":
 
 
 elif choose == "Sunburst chart":
-
-    
-    import plotly.express as px
+    a_sunplot = a.groupby(['location',"level_0","level_1"],as_index=False)["value"].sum()
     fig = px.sunburst(a_sunplot, path=['location',"level_0","level_1"], values='value')
     
     st.plotly_chart(fig, use_container_width=True)
