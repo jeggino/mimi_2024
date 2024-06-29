@@ -75,7 +75,6 @@ if choose == "Observations":
         
     df_2 = df[["datum","location","day_storm","operator","total","comment"]]
     option = col_1.dataframe(data=df_2, use_container_width=True,hide_index=True, on_select="rerun", selection_mode="single-row")
-    a
     # st.download_button(label="Download data as CSV",data=a,file_name="df.csv",mime="text/csv")
     
     try:
@@ -110,6 +109,8 @@ elif choose == "Sunburst chart":
     st.plotly_chart(fig, use_container_width=True)
     "---"
     st.plotly_chart(fig_2, use_container_width=True)
+    "---"
+    a
 
     
    
