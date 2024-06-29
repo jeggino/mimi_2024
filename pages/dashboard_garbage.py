@@ -74,8 +74,7 @@ if choose == "Observations":
         st.stop()
         
     df_2 = df[["datum","location","day_storm","operator","total","comment"]]
-    option = col_1.dataframe(data=df_2, width=None, height=None, use_container_width=True,
-                 hide_index=True, column_order=None, column_config=None, key=None, on_select="rerun", selection_mode="single-row")
+    option = col_1.dataframe(data=df_2, use_container_width=True,hide_index=True, on_select="rerun", selection_mode="single-row")
     st.download_button(label="Download data as CSV",data=a,file_name="df.csv",mime="text/csv")
     
     try:
@@ -101,9 +100,14 @@ if choose == "Observations":
 
 elif choose == "Sunburst chart":
     a_sunplot = a.groupby(['location',"level_0","level_1"],as_index=False)["value"].sum()
+    a_sunplot_2 = a.groupby(["level_0","level_1"],as_index=False)["value"].sum()
+    
     fig = px.sunburst(a_sunplot, path=['location',"level_0","level_1"], values='value')
+    fig_2 = px.sunburst(a_sunplot_2, path=["level_0","level_1"], values='value')
+
     
     st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig_2, use_container_width=True)
 
     
    
