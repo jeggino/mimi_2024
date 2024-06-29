@@ -2,7 +2,7 @@ deta
 pandas
 folium
 altair
-streamlit>=1.32.0
+streamlit
 streamlit-folium>=0.8.1
 geopandas
 streamlit_option_menu
