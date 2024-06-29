@@ -107,6 +107,7 @@ elif choose == "Sunburst chart":
 
     
     st.plotly_chart(fig, use_container_width=True)
+    "---"
     st.plotly_chart(fig_2, use_container_width=True)
 
     
