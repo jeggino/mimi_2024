@@ -69,15 +69,17 @@ df_2 = df[["datum","location","day_storm","operator","total","comment"]]
 
 # --- APP ---
 if choose == "Observations":
-    col_1,col_2 = st.columns([4,3])
+    
     
     if len(df)==0:
         st.warning("No data yet")
         st.stop()
 
     with st.expander("Entire dataset"):
-        st.dataframe(data=a, use_container_width=True,hide_index=True)
-        
+        st.dataframe(data=a, column_order=["datum","location","day_storm","level_0","level_1","value"],
+                     use_container_width=True,hide_index=True)
+
+    col_1,col_2 = st.columns([4,3])
     option = col_1.dataframe(data=df_2, use_container_width=True,hide_index=True, on_select="rerun", selection_mode="single-row")
     
     
