@@ -111,7 +111,7 @@ elif choose == "Sunburst chart":
     "---"
     st.plotly_chart(fig_2, use_container_width=True)
     "---"
-    df_bar_chart = df_2.groupby('location',as_index=False)['total'].sum().sort_values(by='total',ascending=False)
+    df_bar_chart = df_2.groupby('location',as_index=False)['total'].sum()
     st.bar_chart(df_bar_chart,x="location", y="total",horizontal=True)
     # st.dataframe(data=df_2.groupby('location',as_index=False)['total'].sum(), use_container_width=True,hide_index=True)
     
