@@ -240,6 +240,7 @@ if choose == "Observations":
 
 
 elif choose == "Charts":
+    a
     a_sunplot = a.groupby(['location',"transect","level_0","level_1"],as_index=False)["value"].sum()
     a_sunplot_2 = a.groupby(["level_0","level_1"],as_index=False)["value"].sum()
     
