@@ -197,7 +197,7 @@ a["datum"] = a["row"].apply(lambda x: df.loc[x,"datum"])
 a["operator"] = a["row"].apply(lambda x: df.loc[x,"operator"])
 a["location"] = a["row"].apply(lambda x: df.loc[x,"location"])
 a["transect"] = a["row"].apply(lambda x: df.loc[x,"transect"])
-a["trail"] = a["row"].apply(lambda x: df.loc[x,"trail"])
+a["trial"] = a["row"].apply(lambda x: df.loc[x,"trial"])
 
 df_2 = df[["datum","location","operator","transect","trial","comment"]]
 
