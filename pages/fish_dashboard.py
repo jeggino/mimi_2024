@@ -240,8 +240,9 @@ if choose == "Observations":
 
 
 elif choose == "Charts":
-    a_sunplot = a.groupby(['location',"level_0","level_1"],as_index=False)["value"].sum()
+    a_sunplot = a.groupby(['location',"transect","level_0","level_1"],as_index=False)["value"].sum()
     a_sunplot_2 = a.groupby(["level_0","level_1"],as_index=False)["value"].sum()
+    
     
     fig = px.sunburst(a_sunplot, path=['location',"level_0","level_1"], values='value')
     fig_2 = px.sunburst(a_sunplot_2, path=["level_0","level_1"], values='value')
@@ -249,7 +250,7 @@ elif choose == "Charts":
     st.subheader("For location", divider='grey')
     st.plotly_chart(fig, use_container_width=True)
 
-    st.subheader("Fror Genus", divider='grey')
+    st.subheader("For Genus", divider='grey')
     st.plotly_chart(fig_2, use_container_width=True)
     
     
