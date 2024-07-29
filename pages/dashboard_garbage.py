@@ -121,6 +121,7 @@ elif choose == "Charts":
     st.download_button(
         label="Download chart as html",
         data=fig.write_html("chart.html"),
+        key = "d_2"
     )
 
     st.subheader("Quantity of items for tipology", divider='grey')
