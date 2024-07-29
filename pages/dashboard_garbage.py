@@ -113,14 +113,16 @@ elif choose == "Charts":
     fig = px.sunburst(a_sunplot, path=['location',"level_0","level_1"], values='value')
     fig_2 = px.sunburst(a_sunplot_2, path=["level_0","level_1"], values='value')
 
-    st.download_button(
-        label="Download chart as html",
-        data=a_sunplot_2,
-        file_name="chart.html"
-    )
+    
     
     st.subheader("Quantity of items for site", divider='grey')
     st.plotly_chart(fig, use_container_width=True)
+
+    st.download_button(
+        label="Download chart as html",
+        data=fig,
+        file_name="chart.html"
+    )
 
     st.subheader("Quantity of items for tipology", divider='grey')
     st.plotly_chart(fig_2, use_container_width=True)
