@@ -121,6 +121,7 @@ elif choose == "Charts":
     st.download_button(
         label="Download chart as html",
         data=fig.write_html("chart.html"),
+        mime="application/octet-stream",
         key = "d_2"
     )
 
