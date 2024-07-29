@@ -118,6 +118,11 @@ elif choose == "Charts":
     st.subheader("Quantity of items for site", divider='grey')
     st.plotly_chart(fig, use_container_width=True)
 
+    st.download_button(
+        label="Download chart as html",
+        data=fig.write_html("chart.html"),
+    )
+
     st.subheader("Quantity of items for tipology", divider='grey')
     st.plotly_chart(fig_2, use_container_width=True)
 
